@@ -16,6 +16,7 @@
 // todo: make dongle work.
 // https://github.com/zmkfirmware/zmk/tree/main/app/boards/shields/corne
 // https://github.com/aroum/zmk-enki42
+// set OS layout to U.S. Ansi
 
 &lt {
     quick-tap-ms = <200>;
@@ -27,7 +28,7 @@
 };
 
 / {
-      behaviors {
+    behaviors {
         hm: hold_preferred_homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -46,17 +47,45 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+        um: tap_preferred_umlaut_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
+            flavor = "tap-preferred";
+            // long press will forward the key to the umlaut macro
+            bindings = <&umlaut>, <&kp>;
+        };
+        umlaut_unshifted: umlaut_unshifted {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LA(U)>, <&kp LA(U)>;
+            // the mod-morph will prevent the shift modifier from being sent while sending the umlaut shortcut
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+    macros {
+        umlaut: umlaut {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            // use the mod-morph behavior to send the umlaut shortcut and then tap the given parameter key
+            bindings =
+                <&umlaut_unshifted>,
+                <&macro_tap>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+        };
     };
         keymap {
                 compatible = "zmk,keymap";
                 default_layer {
                         bindings = <
 //,----------------------------------------------------------------------.            ,----------------------------------------------------------------------.
-    &kp TAB         &kp Q       &kp W        &kp E         &kp R   &kp T               &kp Y       &kp U          &kp I       &kp O           &kp P   &kp DEL
+    &kp TAB         &kp Q        &kp W       &kp E         &kp R   &kp T               &kp Y       &um U U        &kp I      &um O O           &kp P  &kp DEL
 //|---------+-------------+-----------+------------+-------------+-------|            |------+-------------+------------+-----------+---------------+--------|
-    &kp ESC   &tm LCTRL A   &tm LALT S  &tm LCMD D   &hm LSHFT F   &kp G               &kp H   &hm RSHFT J   &tm RCMD K   &tm RALT L  &tm RCTL SEMI   &kp SQT
+    &kp ESC   &tm LCTRL A   &tm LALT S  &tm LCMD D   &hm LSHFT F   &kp G               &kp H   &hm RSHFT J   &tm RCMD K   &tm RALT L   &tm RCTL SEMI  &kp SQT
 //|---------+-------------+-----------+------------+-------------+-------|            |------+-------------+------------+-----------+---------------+--------|
-   &kp BSLH         &kp Z       &kp X        &kp C         &kp V   &kp B               &kp N       &kp M      &kp COMMA     &kp DOT        &kp FSLH   &trans
+   &kp BSLH         &kp Z        &kp X       &kp C         &kp V   &kp B               &kp N         &kp M    &kp COMMA      &kp DOT        &kp FSLH  &trans
 //|---------+-------------+-----------+------------+-------------+-------+----|  |----+------+-------------+------------+-----------+---------------+--------|
                                     &mo NAV   &lt LOWER SPACE   &lt RAISE BSPC     &lt RAISE RET   &lt LOWER SPACE   &kp LG(LC(SPACE))
                                  //`--------+-----------------+---------------'  `---------------+-----------------+------------------'
@@ -80,7 +109,7 @@
 //,----------------------------------------------------.            ,-----------------------------------------------------.
    &kp F12   &kp F1   &kp F2   &kp F3   &kp F4   &kp F5              &kp F6   &kp F7   &kp F8   &kp F9   &kp F10   &kp F11
 //|--------+--------+--------+--------+--------+-------|            |------+---------+--------+--------+---------+--------|
-    &trans   &trans   &trans   &trans   &trans   &trans              &trans   &trans   &trans   &trans    &trans   &trans
+    &trans &umlaut A  &trans   &trans   &trans   &trans              &trans   &trans   &trans   &trans    &trans   &trans
 //|--------+--------+--------+--------+--------+-------|            |------+---------+--------+--------+---------+--------|
     &trans   &trans   &trans   &trans   &trans   &trans              &trans   &trans   &trans   &trans    &trans   &trans
 //|--------+--------+--------+--------+--------+-------+----|  |----+------+---------+--------+--------+---------+--------|
