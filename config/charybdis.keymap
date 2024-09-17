@@ -58,18 +58,26 @@
             quick-tap-ms = <200>;
             require-prior-idle-ms = <125>;
             flavor = "tap-preferred";
+            // long press will forward the key to the umlaut macro
             bindings = <&umlaut>, <&kp>;
+        };
+        umlaut_unshifted: umlaut_unshifted {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LA(U)>, <&kp LA(U)>;
+            // the mod-morph will prevent the shift modifier from being sent while sending the umlaut shortcut
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
     macros {
         umlaut: umlaut {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
+            // use the mod-morph behavior to send the umlaut shortcut and then tap the given parameter key
             bindings =
-                <&kp LA(U)>,
+                <&umlaut_unshifted>,
                 <&macro_tap>,
                 <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-            label = "Umlaut";
         };
     };
         keymap {
