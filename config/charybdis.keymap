@@ -109,9 +109,9 @@
                 lower_layer {
                         bindings = <
 //,------------------------------------------------------------.            ,---------------------------------------------------------------------------------.
-   &kp GRAVE   &kp N1    &kp N2     &kp N3      &kp N4   &kp N5              &kp N6           &kp N7          &kp N8          &kp N9           &kp N0   &trans
+   &trans  &kp EXCLAMATION  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT        &kp CARET  &kp AMPERSAND   &kp ASTERISK       &kp MINUS        &kp EQUAL   &trans
 //|-------+-----------+---------+----------+-----------+-------|            |------+-----------------+---------------+---------------+----------------+-------|
-   &caps_word  &kp LCTRL   &kp LALT  &kp LCMD   &kp LSHFT   &trans              &trans   &hm RSHFT RBKT   &hm RCMD LBKT   &hm RALT MINUS  &hm RCTRL EQUAL   &trans
+   &kp GRAVE  &tm LCTRL N1  &tm LALT N2  &tm LCMD N3  &hm LSHFT N4  &kp N5   &kp N6   &hm RSHFT N7      &tm RCMD N8     &tm RALT N9     &tm RCTRL N0    &trans
 //|-------+-----------+---------+----------+-----------+-------|            |------+-----------------+---------------+---------------+----------------+-------|
    &trans      &trans    &trans     &trans      &trans   &trans              &trans           &trans          &trans          &trans           &trans   &trans
 //|-------+-----------+---------+----------+-----------+-------+----|  |----+------+-----------------+---------------+---------------+----------------+-------|
@@ -122,11 +122,11 @@
                 raise_layer {
                         bindings = <
 //,-------------------------------------------------------------.            ,----------------------------------------------------------------------.
-   &kp F12   &kp F1   &kp F2   &kp F3       &kp F4   &kp F5                        &kp F6       &kp F7           &kp F8   &kp F9   &kp F10   &kp F11
+   &kp F12   &kp F1   &kp F2   &kp F3       &kp F4   &kp F5                        &kp F6     &kp LPAR         &kp RPAR   &kp F9   &kp F10   &kp F11
 //|--------+--------+--------+--------+------------+------------|            |------------+------------+----------------+--------+---------+--------|
-    &trans &umlaut A  &trans   &trans       &trans   &trans                        &trans       &trans           &trans   &trans    &trans   &trans
+   &caps_word &umlaut A &trans &trans       &trans   &trans                        &trans  &hm RSHFT LBKT  &hm RCMD RBKT  &hm RALT MINUS  &hm RCTRL EQUAL  &trans
 //|--------+--------+--------+--------+------------+------------|            |------------+------------+----------------+--------+---------+--------|
-    &trans   &trans   &trans   &trans   &sys_reset   &bootloader              &bootloader   &sys_reset   &bt BT_CLR_ALL   &trans    &trans   &trans
+    &trans   &trans   &trans   &trans       &trans   &trans                         &trans  &kp LBRC            &kp RBRC   &trans    &trans   &trans
 //|--------+--------+--------+--------+------------+------------+----|  |----+------------+------------+----------------+--------+---------+--------|
                                     &trans   &kp SPACE   &kp BSPC    &kp RET   &kp SPACE
                                  //`-------+-----------+---------'  `--------+----------'
@@ -152,7 +152,7 @@
 //|--------+-----------+----------+----------+-----------+-------|            |---------+----------+--------+-----------+--------+------------|
     &trans   &kp LCTRL   &kp LALT   &kp LCMD   &kp LSHFT   &trans              &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans   &trans
 //|--------+-----------+----------+----------+-----------+-------|            |---------+----------+--------+-----------+--------+------------|
-    &trans   &trans      &trans       &trans      &trans   &trans                &trans     &trans   &trans      &trans   &trans   &trans
+    &trans   &trans      &trans       &trans  &sys_reset  &bootloader         &bootloader  &sys_reset  &trans     &trans   &trans   &trans
 //|--------+-----------+----------+----------+-----------+-------+----|  |----+---------+----------+--------+-----------+--------+------------|
                                             &trans   &kp SPACE   &kp BSPC    &kp RET   &kp SPACE
                                          //`-------+-----------+---------'  `--------+----------'
