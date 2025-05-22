@@ -57,14 +57,14 @@
             // long press will forward the key to the umlaut macro
             bindings = <&umlaut>, <&kp>;
         };
-        cm: tap_preferred_caps_mods {
+        cm: tap_preferred_hyper_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             quick-tap-ms = <200>;
             require-prior-idle-ms = <125>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&caps>;
+            bindings = <&kp>, <&hyper>;
         };
         umlaut_unshifted: umlaut_unshifted {
             compatible = "zmk,behavior-mod-morph";
@@ -84,12 +84,12 @@
                 <&macro_tap>,
                 <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
         };
-        caps: caps {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
+        hyper: hyper {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
             bindings = <&macro_tap>,
               <&macro_tap_time 100>,
-              <&kp CAPS>;
+              <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
         };
     };
         keymap {
@@ -101,7 +101,7 @@
 //|---------+-------------+-----------+------------+-------------+-------|            |------+-------------+------------+-----------+---------------+-------------------|
     &kp ESC   &tm LCTRL A   &tm LALT S  &tm LCMD D   &hm LSHFT F   &kp G               &kp H   &hm RSHFT J   &tm RCMD K   &tm RALT L  &tm RCTRL SEMI             &kp SQT
 //|---------+-------------+-----------+------------+-------------+-------|            |------+-------------+------------+-----------+---------------+-------------------|
-   &kp BSLH         &kp Z       &kp X        &kp C         &kp V   &kp B               &kp N       &kp M      &kp COMMA     &kp DOT        &kp FSLH   &cm LG(LC(SPACE)) CAPS
+   &kp BSLH         &kp Z       &kp X        &kp C         &kp V   &kp B               &kp N       &kp M      &kp COMMA     &kp DOT        &kp FSLH   &cm LG(LC(SPACE)) LC(LA(LG(LSHFT)))
 //|---------+-------------+-----------+------------+-------------+-------+----|  |----+------+-------------+------------+-----------+---------------+-------------------|
                                           &mo NAV  &lt LOWER SPACE  &lt RAISE BSPC     &lt RAISE RET   &lt LOWER SPACE  &trans
                                        //`--------+-----------+---------------'  `---------------+----------------'
