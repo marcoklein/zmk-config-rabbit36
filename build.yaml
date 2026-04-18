@@ -14,9 +14,9 @@
 ---
 include:
   - board: nice_nano//zmk
-    shield: corne_left_5col
+    shield: corne_left
   - board: nice_nano//zmk
-    shield: corne_right_5col
+    shield: corne_right
   # To reset the boards
   - board: nice_nano//zmk
     shield: settings_reset
