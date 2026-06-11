@@ -48,47 +48,6 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        eu: tap_preferred_euro_mods {
-            compatible = "zmk,behavior-hold-tap";
-            // behavior-hold-tap must have two parameters even though we're only using the second
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <125>;
-            flavor = "tap-preferred";
-            // long press will run the euro macro
-            bindings = <&euro>, <&kp>;
-        };
-        um: tap_preferred_umlaut_mods {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <125>;
-            flavor = "tap-preferred";
-            // long press: umlaut with first param
-            // tap: keypress second param
-            bindings = <&umlaut>, <&kp>;
-        };
-    };
-    macros {
-        umlaut: umlaut {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_tap &kp K_CMENU>, // menu key is mapped to compose key
-                <&macro_tap &kp DQT>,
-                <&macro_tap>, // tap the key provided by params
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-        };
-        euro: euro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap &kp K_CMENU>,
-                <&macro_tap &kp C>,
-                <&macro_tap &kp EQUAL>;
-        };
     };
         keymap {
                 compatible = "zmk,keymap";
@@ -96,7 +55,7 @@
         default_layer {
             bindings = <
 // ╭─────────────┬────────────┬────────────┬─────────────┬───────╮   ╭───────┬─────────────┬────────────┬────────────┬────────────────╮
-        &kp Q        &kp W        &eu E E       &kp R      &kp T       &kp Y     &um U U       &kp I       &um O O         &kp P
+        &kp Q        &kp W      &tm LA(E) E     &kp R      &kp T       &kp Y   &tm LA(U) U     &kp I      &tm LA(O) O       &kp P
 // ├─────────────┼────────────┼────────────┼─────────────┼───────┤   ├───────┼─────────────┼────────────┼────────────┼────────────────┤
       &tm LCTRL A   &tm LALT S   &tm LCMD D   &hm LSHFT F   &kp G       &kp H   &hm RSHFT J   &tm RCMD K   &tm RALT L   &tm RCTRL SEMI
 // ├─────────────┼────────────┼────────────┼─────────────┼───────┤   ├───────┼─────────────┼────────────┼────────────┼────────────────┤
@@ -127,7 +86,7 @@
 // ╭───────────┬──────────┬─────────┬─────────┬────────╮   ╭────────┬────────────────┬───────────────┬────────┬─────────────╮
        &kp F1      &kp F2    &kp F3    &kp F4   &kp F5       &kp F6      &kp LPAR        &kp RPAR      &kp F9     &kp F10
 // ├───────────┼──────────┼─────────┼─────────┼────────┤   ├────────┼────────────────┼───────────────┼────────┼─────────────┤
-      &umlaut A   &kp LALT  &kp LCMD  &kp LSHFT  &trans      &trans   &hm RSHFT LBRC   &hm RCMD RBRC  &kp GRAVE   &kp SQT
+     &kp LA(A)   &kp LALT  &kp LCMD  &kp LSHFT  &trans      &trans   &hm RSHFT LBRC   &hm RCMD RBRC  &kp GRAVE   &kp SQT
 // ├───────────┼──────────┼─────────┼─────────┼────────┤   ├────────┼────────────────┼───────────────┼────────┼─────────────┤
        &trans     &trans    &trans    &trans    &trans       &trans      &kp LBKT        &kp RBKT      &trans     &kp BSLH
 // ╰───────────┴──────────┼─────────┼─────────┼────────┤   ├────────┼────────────────┼───────────────┴────────┴─────────────╯
