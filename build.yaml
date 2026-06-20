@@ -16,5 +16,5 @@ include:
   - board: xiao_ble//zmk
     shield: rabbit36
     # To reset the boards
-  - board: nice_nano//zmk
+  - board: xiao_ble//zmk
     shield: settings_reset
