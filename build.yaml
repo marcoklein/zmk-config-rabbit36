@@ -14,4 +14,4 @@
 ---
 include:
   - board: xiao_ble//zmk
-    shield: babbit36
+    shield: rabbit36

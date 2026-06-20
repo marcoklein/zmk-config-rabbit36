@@ -1,7 +1,7 @@
-if BABBIT36
+if RABBIT36
 
 config ZMK_KEYBOARD_NAME
-    default "babbit36"
+    default "rabbit36"
 
 config SPI
 	default y

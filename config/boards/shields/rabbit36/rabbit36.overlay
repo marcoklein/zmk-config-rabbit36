@@ -20,8 +20,8 @@
 &xiao_serial { status = "disabled"; };
 
 / {
-	model = "babbit36";
-	compatible = "babbit36";
+	model = "rabbit36";
+	compatible = "rabbit36";
 
 	chosen {
 		zmk,kscan = &kscan;
