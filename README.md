@@ -1,4 +1,6 @@
-# zmk-config-babbit36
+# zmk-config-babbit36 (archived)
+
+> **Deprecation notice** — This keymap has moved to the consolidated [keymaps](https://github.com/marcoklein/keymaps) repo (see `babbit36-zmk/`).
 
 ZMK firmware config for the **Babbit36** keyboard (XIAO BLE + 74HC595 shift register, 36-key split).
 
