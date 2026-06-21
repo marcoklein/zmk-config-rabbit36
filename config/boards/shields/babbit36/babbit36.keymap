@@ -63,11 +63,11 @@
         raise_layer {
             bindings = <
 // ╭───────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-      &kp N1     &kp N2    &kp N3    &kp N4    &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0
+      &kp F2     &kp F3    &kp F4    &kp F5    &kp F6        &kp F7    &kp F8    &kp F9    &kp F10   &kp F11
 // ├───────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-      &kp GRAVE  &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT      &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &kp DEL
+    &hml LGUI F1 &hml LALT CAPSLOCK &hml LCTRL ESC &hml LSHFT TAB  &trans   &trans   &trans   &trans   &trans   &hmr RGUI F12
 // ├───────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-      &kp BSLH   &trans    &trans    &trans    &trans         &trans    &trans    &trans    &kp PG_DN &kp PG_UP
+      &trans     &trans    &trans    &kp INS   &kp PSCRN      &trans    &trans    &trans    &trans    &trans
 // ╰───────────┴──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                            &trans     &trans     &trans          &trans     &trans     &trans
 //                       ╰──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────╯
@@ -77,9 +77,9 @@
         lower_layer {
             bindings = <
 // ╭───────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-      &kp EXCL   &kp AT    &kp HASH  &kp DLLR  &kp PRCNT      &kp CARET &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
+      &kp N1     &kp N2    &kp N3    &kp N4    &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0
 // ├───────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-      &kp TILDE  &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC       &trans    &kp SQT   &trans    &trans    &kp DQT
+      &kp TILDE  &hml LALT BSLH &hml LCTRL MINUS &hml LSHFT EQUAL &trans   &trans   &hmr RSHFT LBKT &hmr RCTRL RBKT &trans   &hmr RGUI SQT
 // ├───────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
       &kp PIPE   &trans    &trans    &trans    &trans         &trans    &trans    &trans    &trans    &trans
 // ╰───────────┴──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
@@ -95,9 +95,9 @@
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├────────────┼────────────┼──────────┼──────────┼──────────┤
       &bt BT_CLR    &trans        &trans        &sys_reset    &bootloader        &kp LEFT    &kp DOWN    &kp UP     &kp RIGHT &trans
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├────────────┼────────────┼──────────┼──────────┼──────────┤
-      &trans        &trans        &trans        &trans        &trans             &trans      &trans      &trans     &trans    &trans
+      &trans        &trans        &trans        &trans        &trans             &kp HOME    &kp PG_DN   &kp PG_UP  &kp END   &trans
 // ╰──────────────┴──────────────┼──────────────┼──────────────┼──────────────┤   ├────────────┼────────────┼──────────┴──────────┴──────────╯
-                                  &trans        &trans        &trans             &trans      &trans      &trans
+                                   &trans        &trans        &trans             &trans      &trans      &trans
 //                              ╰──────────────┴──────────────┴──────────────╯   ╰────────────┴────────────┴──────────╯
             >;
         };
